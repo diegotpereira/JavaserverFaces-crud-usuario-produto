@@ -17,7 +17,7 @@
 	<h:form>
 		<h:panelGrid columns="12" cellpadding="5">
 			<h:outputText value="Name " />
-			<p:inputText value="#{usuario.nome}" />
+			<p:inputText value="#{usuarioControle.usuario.nome}" />
 			<p:commandButton value="Add" icon="fa fa-fw fa-plus" action="#{usuarioControle.criar()}" />
 		</h:panelGrid>
 	</h:form>

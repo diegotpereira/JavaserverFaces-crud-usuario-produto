@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named
+@Named(value = "usuarioControle")
 @SessionScoped
 public class UsuarioControle implements Serializable{
 	
@@ -26,6 +26,8 @@ public class UsuarioControle implements Serializable{
 		
 		return lista;
 	}
+	
+	
 	
 	public String criar() {
 		
@@ -52,17 +54,17 @@ public class UsuarioControle implements Serializable{
 //		this.usuarioDao = usuarioDao;
 //	}
 //	
-//	public Usuario getUsuario() {
-//		
-//		if (this.usuario == null) {
-//			
-//			this.usuario = new Usuario();
-//		}
-//		
-//		return usuario;
-//	}
-//	
-//	public void setUsuario(Usuario usuario) {
-//		this.usuario = usuario;
-//	}
+	public Usuario getUsuario() {
+		
+		if (this.usuario == null) {
+			
+			this.usuario = new Usuario();
+		}
+		
+		return usuario;
+	}
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 }

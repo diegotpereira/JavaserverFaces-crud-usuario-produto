@@ -8,7 +8,7 @@ import br.com.java.modelo.Usuario;
 
 public class UsuarioDao {
 	
-	Connection con = Conexao.getConnection();
+	static Connection con = Conexao.getConnection();
 	
 	public List<Usuario> buscarTodos() {
 		
@@ -43,9 +43,11 @@ public class UsuarioDao {
 		return lista;
 	}
 	
-	public void inserirUsuario(Usuario usuario) {
+	public static String inserirUsuario(Usuario usuario) {
 		
-		String SQL = "INSERT INTO USUARIOS (nome) VALUES (?,?)";
+		int resultado = 0;
+		String navegacao = "";
+		String SQL = "INSERT INTO USUARIOS (nome) VALUES (?)";
 		
 		try {
 			
@@ -62,18 +64,15 @@ public class UsuarioDao {
 			System.err.println("Erro: " + e.getMessage());
 		}
 		
+		if (resultado != 0) {
+			
+			navegacao = "index.xhtml?faces-redirect=true";
+			
+		} else {
+			
+			navegacao = "cadastrar.xhtml?faces-redirect=true";
+		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		return navegacao;
 	}
 }
