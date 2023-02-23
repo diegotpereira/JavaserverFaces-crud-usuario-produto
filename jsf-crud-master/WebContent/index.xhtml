@@ -2,18 +2,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"      
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Detalhes de Usuários</title>
+	<h:outputStylesheet name="/css/bootstrap.min.css" />
 	
-    <h:head>
-        <title>JSF 2.0 Hello World</title>
-    </h:head>
-    <h:body>
-    	<h2>JSF 2.0 Hello World Example - hello.xhtml</h2>
-    	<h:form>
-    	   <p:inputText value="#{testeBean.name}"></p:inputText>
-    	   <p:commandButton value="Welcome Me" action="welcome"></p:commandButton>
-    	</h:form>
-    </h:body>
+</h:head>
+
+
+<h:body>
+	<h:form rendered="#{not empty usuarioControle.lista}">
+		<p:dataTable value="#{usuarioControle.lista}" var="item"
+			class="table table-striped table-hover table-bordered">
+			<p:column headerText="Id">
+				<h:outputText value="#{item.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<p:inputText value="#{item.nome}" />
+			</p:column>
+		</p:dataTable>
+		<p:commandButton value="Adicionar Usuário" action="cadastrar.xhtml?faces-redirect=true">
+		</p:commandButton>
+	</h:form>
+</h:body>
 </html>
