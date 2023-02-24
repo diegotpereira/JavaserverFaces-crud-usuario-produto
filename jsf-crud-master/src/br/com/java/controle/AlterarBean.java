@@ -15,8 +15,6 @@ import br.com.java.modelo.Usuario;
 @RequestScoped
 public class AlterarBean implements Serializable{
 	
-	
-	
 	public String alterarUsuario(Long id) {
 		
 		UsuarioDao usuarioDao = new UsuarioDao();

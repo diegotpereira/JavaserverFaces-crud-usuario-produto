@@ -27,7 +27,7 @@
 			    <p:commandButton value="Alterar" action="#{alterarBean.alterarUsuario(item.id)}">
 			        <f:param name="action" value="#{item.id}" />
 		        </p:commandButton>
-		        <p:commandButton value="Deletar" action="alterar.xhtml?faces-redirect=true">
+		        <p:commandButton value="Deletar" action="#{deletarBean.excluir(item.id)}">
 		        </p:commandButton>
 			</p:column>
 			<p:column>
