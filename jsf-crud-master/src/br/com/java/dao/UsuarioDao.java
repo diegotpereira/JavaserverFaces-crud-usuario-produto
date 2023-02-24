@@ -1,6 +1,7 @@
 package br.com.java.dao;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.faces.context.FacesContext;
@@ -12,51 +13,18 @@ public class UsuarioDao {
 	
 	static Connection con = Conexao.getConnection();
 	
-	public List<Usuario> buscarTodos() {
-		
-		String SQL = "SELECT * FROM USUARIOS";
-		
-		List<Usuario> lista = new ArrayList<Usuario>();
-		
-		try {
-			
-			PreparedStatement ps = con.prepareStatement(SQL);
-			ResultSet rs = ps.executeQuery();
-			
-			while (rs.next()) {
-				
-				Usuario usuario = new Usuario();
-				
-				usuario.setId(rs.getLong("id"));
-				usuario.setNome(rs.getString("nome"));
-				usuario.setGenero(rs.getString("genero"));
-				
-				lista.add(usuario);
-			}
-			
-			if (!rs.next()) {
-				
-				System.out.println("Não existem dados no banco para serem exibidos");
-			}
-		} catch (SQLException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		
-		return lista;
-	}
-	
 	public static String inserirUsuario(Usuario usuario) {
 		
 		int resultado = 0;
 		String navegacao = "";
-		String SQL = "INSERT INTO USUARIOS (nome, genero) VALUES (?, ?)";
+		String SQL = "INSERT INTO USUARIOS (nome, genero, dataNascimento) VALUES (?, ?, ?)";
 		
 		try {
 			
 			PreparedStatement ps = con.prepareStatement(SQL);
 			ps.setString(1, usuario.getNome());
 			ps.setString(2, usuario.getGenero());
+			ps.setDate(3, new java.sql.Date (usuario.getDataNascimento().getTime()));
 			ps.execute();
 			ps.close();
 			

@@ -35,6 +35,12 @@
 	            </p:selectOneRadio>
 	        </div>
 	    </div>
+	    <div class="form-group">
+	        <p:outputLabel value="Data de Nascimento " class="control-label col-sm-4"/>
+	        <p:inputText value="#{criarBean.usuario.dataNascimento}" class="form-control">
+	            <f:convertDateTime pattern="dd/MM/yyyy"/>
+	        </p:inputText>
+	    </div>
 	    <div class="col-sm-2">
 	        <p:commandButton value="Adcionar" action="#{criarBean.criar}" class="btn btn-success"/>
 	    </div>

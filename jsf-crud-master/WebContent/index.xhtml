@@ -31,6 +31,11 @@
 			<p:column headerText="Genêro">
 				<p:inputText value="#{item.genero}"/>
 			</p:column>
+			<p:column headerText="Data de Nascimento">
+				<p:inputText value="#{item.dataNascimento}">
+				    <f:convertDateTime pattern="dd/MM/yyyy"/>
+				</p:inputText>
+			</p:column>
 			<p:column headerText="Ação">
 			    <p:commandButton value="Alterar" action="#{alterarBean.alterarUsuario(item.id)}">
 			        <f:param name="action" value="#{item.id}" />

@@ -1,6 +1,8 @@
 package br.com.java.modelo;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import br.com.java.dao.UsuarioDao;
 
@@ -10,17 +12,19 @@ public class Usuario implements Serializable{
 	private Long id;
 	private String nome;
 	private String genero;
+	private Date dataNascimento;
 	private UsuarioDao usuarioDao;
 	
 	public Usuario() {
 		super();
 	}
 	
-	public Usuario(Long id, String nome, String genero) {
+	public Usuario(Long id, String nome, String genero, Date datanascimento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.genero = genero;
+		this.dataNascimento = datanascimento;
 	}
 
 	public Long getId() {
@@ -45,6 +49,14 @@ public class Usuario implements Serializable{
 
 	public void setGenero(String genero) {
 		this.genero = genero;
+	}
+	
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String inserirUsuario(Usuario usuario) {

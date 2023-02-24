@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
+import br.com.java.dao.AlterarDao;
 import br.com.java.dao.UsuarioDao;
 import br.com.java.modelo.Usuario;
 
@@ -17,10 +18,12 @@ public class AlterarBean implements Serializable{
 	
 	public String alterarUsuario(Long id) {
 		
-		UsuarioDao usuarioDao = new UsuarioDao();
+//		UsuarioDao usuarioDao = new UsuarioDao();
+		AlterarDao alterarDao = new AlterarDao();
 		Usuario usuario = new Usuario();
 		
-		usuario = usuarioDao.alterarUsuario(id);
+//		usuario = usuarioDao.alterarUsuario(id);
+		usuario = alterarDao.alterarUsuario(id);
 		
 		return "alterar.xhtml";
 	}
