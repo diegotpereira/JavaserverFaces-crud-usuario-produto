@@ -109,10 +109,12 @@ public class UsuarioDao {
 				usuario.setNome(rs.getString("nome"));
 			}
 			
-			rs.close();
-			ps.close();
+			
 			
 			secao.put("editarObj", usuario);
+			
+			rs.close();
+			ps.close();
 			
 		} catch (SQLException e) {
 			// TODO: handle exception
@@ -122,6 +124,28 @@ public class UsuarioDao {
 		return usuario;
 	}
 	
+	public Usuario atualizarUsuario(Usuario usuario) throws SQLException {
+		
+		try {
+			
+			String SQL = "UPDATE USUARIOS SET NOME = ? WHERE id = ?";
+			PreparedStatement ps = con.prepareStatement(SQL);
+			
+			ps.setString(1, usuario.getNome());
+			ps.setLong(2, usuario.getId());
+			ps.executeUpdate();
+			
+			System.out.println("Usuário atualizado com sucesso!");
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		} 
+		
+		return usuario;
+		
+	}
 	public Usuario buscarPorNome(String nome) {
 		
 		String SQL = "SELECT * FROM USUARIOS WHERE NOME = ?";

@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Detalhes de Usuários #{usuario.nome}</title>
+	<title>Detalhes de Usuários #{editarObj.nome}</title>
 	<h:outputStylesheet name="/css/bootstrap.min.css" />
 	
 </h:head>
@@ -15,13 +15,17 @@
 
 <h:body>
 	<h:form>
-		<h2>Alterar</h2>
+		<h2>Alterar Dados do Usuário #{editarObj.nome}</h2>
 <!-- 		<h:inputHidden value="#{usuario.id}" /> -->
 		<div>
-		    <h:panelGrid columns="2">
-		        <p:outputLabel value="Nome" for="nome" required="true" />
+		    <h:panelGrid columns="2" cellspacing="20" border="1">
+		        <p:outputLabel value="Nome " for="nome" required="true" class="control-label col-sm-2"/>
 		        <p:inputText id="nome" value="#{editarObj.nome}" required="true" />
-		        <p:inputText value="#{usuario.id}" type="hidden" />
+		        
+		        <p:commandButton class="btn btn-primary"
+						action="#{alterarBean.atualizarUsuario(editarObj)}" value="Atualizar">
+				</p:commandButton>
+		        
 		    </h:panelGrid>
 		</div>
 	</h:form>
