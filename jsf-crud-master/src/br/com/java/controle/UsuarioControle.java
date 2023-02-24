@@ -7,10 +7,9 @@ import br.com.java.modelo.Usuario;
 
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-@Named(value = "usuarioControle")
+@Named
 @SessionScoped
 public class UsuarioControle implements Serializable{
 	
@@ -36,6 +35,14 @@ public class UsuarioControle implements Serializable{
 		
 		return "index";
 	}
+	
+//	public String alterar() {
+//		
+//		getUsuarioDao().alterarUsuario(usuario);
+//		usuario = new Usuario();
+//		
+//		return "alterar";
+//	}
 	
 //	public void setLista(List<Usuario> lista) {
 //		this.lista = lista;

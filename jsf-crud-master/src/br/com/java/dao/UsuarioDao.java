@@ -3,6 +3,8 @@ package br.com.java.dao;
 import java.sql.*;
 import java.util.*;
 
+import javax.faces.context.FacesContext;
+
 import br.com.java.conexao.Conexao;
 import br.com.java.modelo.Usuario;
 
@@ -74,5 +76,80 @@ public class UsuarioDao {
 		}
 		
 		return navegacao;
+	}
+	
+
+//	public void alterarUsuario(Usuario usuario) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+	
+	public Usuario alterarUsuario(Long id) {
+		
+        String SQL = "SELECT * FROM USUARIOS WHERE ID = ?";
+        
+        Map<String, Object> secao = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+        
+        Usuario usuario = new Usuario();
+        
+		try {
+			
+			PreparedStatement ps = con.prepareStatement(SQL);
+			ResultSet rs;
+			
+			ps.setLong(1, id);
+			
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				
+				usuario = new Usuario();
+				
+				usuario.setId(rs.getLong("id"));
+				usuario.setNome(rs.getString("nome"));
+			}
+			
+			rs.close();
+			ps.close();
+			
+			secao.put("editarObj", usuario);
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return usuario;
+	}
+	
+	public Usuario buscarPorNome(String nome) {
+		
+		String SQL = "SELECT * FROM USUARIOS WHERE NOME = ?";
+		
+		Usuario usuario = null;
+		
+		try {
+			
+			PreparedStatement ps = con.prepareStatement(SQL);
+			ResultSet rs;
+			ps.setString(1, nome);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				
+				usuario = new Usuario();
+				usuario.setId(rs.getLong("id"));
+				usuario.setNome(rs.getString("nome"));
+			}
+			
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return usuario;
 	}
 }

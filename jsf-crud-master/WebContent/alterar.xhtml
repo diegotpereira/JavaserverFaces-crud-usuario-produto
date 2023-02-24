@@ -7,19 +7,23 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Detalhes de Usuários</title>
+	<title>Detalhes de Usuários #{usuario.nome}</title>
 	<h:outputStylesheet name="/css/bootstrap.min.css" />
-
+	
 </h:head>
 
 
 <h:body>
 	<h:form>
-		<h:panelGrid columns="12" cellpadding="5">
-			<h:outputText value="Name " />
-			<p:inputText value="#{criarBean.usuario.nome}" />
-			<p:commandButton value="Add" icon="fa fa-fw fa-plus" action="#{criarBean.criar}" />
-		</h:panelGrid>
+		<h2>Alterar</h2>
+<!-- 		<h:inputHidden value="#{usuario.id}" /> -->
+		<div>
+		    <h:panelGrid columns="2">
+		        <p:outputLabel value="Nome" for="nome" required="true" />
+		        <p:inputText id="nome" value="#{editarObj.nome}" required="true" />
+		        <p:inputText value="#{usuario.id}" type="hidden" />
+		    </h:panelGrid>
+		</div>
 	</h:form>
 </h:body>
 </html>

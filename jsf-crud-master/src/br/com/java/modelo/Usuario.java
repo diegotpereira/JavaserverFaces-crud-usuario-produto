@@ -39,9 +39,9 @@ public class Usuario implements Serializable{
 	
 	public String inserirUsuario(Usuario usuario) {
 		
-//		return usuarioDao.inserirUsuario(usuario);
 		return UsuarioDao.inserirUsuario(usuario);
 	}
+	
 
 	public UsuarioDao getUsuarioDao() {
 		return usuarioDao;

@@ -15,17 +15,28 @@
 
 <h:body>
 	<h:form rendered="#{not empty usuarioControle.lista}">
-		<p:dataTable value="#{usuarioControle.lista}" var="item"
+		<p:dataTable value="#{lerBean.lista}" var="item"
 			class="table table-striped table-hover table-bordered">
 			<p:column headerText="Id">
 				<h:outputText value="#{item.id}" />
 			</p:column>
 			<p:column headerText="Nome">
-				<p:inputText value="#{item.nome}" />
+				<p:inputText value="#{item.nome}"/>
+			</p:column>
+			<p:column headerText="Ação">
+			    <p:commandButton value="Alterar" action="#{alterarBean.alterarUsuario(item.id)}">
+			        <f:param name="action" value="#{item.id}" />
+		        </p:commandButton>
+		        <p:commandButton value="Deletar" action="alterar.xhtml?faces-redirect=true">
+		        </p:commandButton>
+			</p:column>
+			<p:column>
+			    
 			</p:column>
 		</p:dataTable>
 		<p:commandButton value="Adicionar Usuário" action="cadastrar.xhtml?faces-redirect=true">
 		</p:commandButton>
+		
 	</h:form>
 </h:body>
 </html>
