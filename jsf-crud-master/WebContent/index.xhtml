@@ -7,14 +7,19 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+    <h:outputStylesheet name="/css/bootstrap.min.css" />
 	<title>Detalhes de Usuários</title>
-	<h:outputStylesheet name="/css/bootstrap.min.css" />
+	<style type="text/css">
+	    #titulo {
+	        text-align: center;
+	    }
+    </style>
 	
 </h:head>
 
-
 <h:body>
-	<h:form rendered="#{not empty usuarioControle.lista}">
+    <h2 id="titulo"><h:outputLabel value="Lista de Usuários"></h:outputLabel></h2>
+	<h:form rendered="#{not empty lerBean.lista}">
 		<p:dataTable value="#{lerBean.lista}" var="item"
 			class="table table-striped table-hover table-bordered">
 			<p:column headerText="Id">
@@ -22,6 +27,9 @@
 			</p:column>
 			<p:column headerText="Nome">
 				<p:inputText value="#{item.nome}"/>
+			</p:column>
+			<p:column headerText="Genêro">
+				<p:inputText value="#{item.genero}"/>
 			</p:column>
 			<p:column headerText="Ação">
 			    <p:commandButton value="Alterar" action="#{alterarBean.alterarUsuario(item.id)}">

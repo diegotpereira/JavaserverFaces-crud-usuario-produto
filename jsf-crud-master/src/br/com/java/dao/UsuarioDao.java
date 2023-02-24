@@ -29,6 +29,7 @@ public class UsuarioDao {
 				
 				usuario.setId(rs.getLong("id"));
 				usuario.setNome(rs.getString("nome"));
+				usuario.setGenero(rs.getString("genero"));
 				
 				lista.add(usuario);
 			}
@@ -49,12 +50,13 @@ public class UsuarioDao {
 		
 		int resultado = 0;
 		String navegacao = "";
-		String SQL = "INSERT INTO USUARIOS (nome) VALUES (?)";
+		String SQL = "INSERT INTO USUARIOS (nome, genero) VALUES (?, ?)";
 		
 		try {
 			
 			PreparedStatement ps = con.prepareStatement(SQL);
 			ps.setString(1, usuario.getNome());
+			ps.setString(2, usuario.getGenero());
 			ps.execute();
 			ps.close();
 			

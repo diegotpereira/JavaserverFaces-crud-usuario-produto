@@ -14,12 +14,30 @@
 
 
 <h:body>
-	<h:form>
-		<h:panelGrid columns="12" cellpadding="5">
-			<h:outputText value="Name " />
-			<p:inputText value="#{criarBean.usuario.nome}" />
-			<p:commandButton value="Add" icon="fa fa-fw fa-plus" action="#{criarBean.criar}" />
-		</h:panelGrid>
+	<h:form class="form-horizontal">
+	    <div class="form-group">
+	        <div class="col-sm-4"></div>
+	        <div class="col-sm-4">
+	            <h2>Adicionar Novo Usuário</h2>
+	        </div>
+	    </div>
+	    <hr/>
+	    <div class="form-group">
+	        <p:outputLabel value="Nome " class="control-label col-sm-4"/>
+	        <p:inputText value="#{criarBean.usuario.nome}" class="form-control"/>
+	    </div>
+	    <div class="form-group">
+	        <p:outputLabel value="Genêro" claass="control-label col-sm-4"></p:outputLabel>
+	        <div class="col-sm-4">
+	            <p:selectOneRadio value="#{criarBean.usuario.genero}">
+	                <f:selectItem itemValue="M" itemLabel="Masculino"></f:selectItem>
+	                <f:selectItem itemValue="F" itemLabel="Feminino"></f:selectItem>
+	            </p:selectOneRadio>
+	        </div>
+	    </div>
+	    <div class="col-sm-2">
+	        <p:commandButton value="Adcionar" action="#{criarBean.criar}" class="btn btn-success"/>
+	    </div>
 	</h:form>
 </h:body>
 </html>

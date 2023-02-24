@@ -9,16 +9,18 @@ public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String nome;
+	private String genero;
 	private UsuarioDao usuarioDao;
 	
 	public Usuario() {
 		super();
 	}
 	
-	public Usuario(Long id, String nome) {
+	public Usuario(Long id, String nome, String genero) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.genero = genero;
 	}
 
 	public Long getId() {
@@ -37,6 +39,14 @@ public class Usuario implements Serializable{
 		this.nome = nome;
 	}
 	
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
 	public String inserirUsuario(Usuario usuario) {
 		
 		return UsuarioDao.inserirUsuario(usuario);

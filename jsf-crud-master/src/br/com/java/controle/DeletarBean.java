@@ -19,11 +19,6 @@ public class DeletarBean implements Serializable{
 		FacesContext fc = FacesContext.getCurrentInstance();
 		
 		DeletarDao deletarDao = new DeletarDao();
-//		Usuario usuario = new Usuario();
-//		
-//		deletarDao.deletar(usuario.getId());
-//		usuario = new Usuario();
-		
 		deletarDao.deletar(id);
 		
 		return "index.xhtml?faces-redirect=true";
