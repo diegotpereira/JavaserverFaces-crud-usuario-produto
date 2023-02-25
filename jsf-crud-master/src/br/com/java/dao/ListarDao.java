@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import br.com.java.conexao.Conexao;
@@ -19,6 +21,7 @@ public class ListarDao {
 		String SQL = "SELECT * FROM USUARIOS";
 		
 		List<Usuario> lista = new ArrayList<Usuario>();
+		int ano;
 		
 		try {
 			
@@ -33,6 +36,7 @@ public class ListarDao {
 				usuario.setNome(rs.getString("nome"));
 				usuario.setGenero(rs.getString("genero"));
 				usuario.setDataNascimento(rs.getDate("dataNascimento"));
+				usuario.setAno(usuario.getAno());
 				
 				lista.add(usuario);
 			}

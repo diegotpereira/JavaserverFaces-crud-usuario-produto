@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Detalhes de Usuários #{editarObj.nome}</title>
+	<h:outputStylesheet name="/css/bootstrap.min.css" />
+	
+</h:head>
+
+
+<h:body>
+	<h:form class="form-horizontal">
+		<div class="form-group">
+		    <div class="col-sm-2"></div>
+		    <h2>Tem Certeza que Deseja Excluir o Usuário #{editarObj.nome}?</h2>
+		</div>
+		<hr />
+		<div class="form-group">
+		    <p:outputLabel value="Nome " class="control-label col-sm-2"/>
+		    <p:inputText id="nome" value="#{editarObj.nome}" required="true" />
+		</div>
+		<div class="form-group">
+	        <p:outputLabel value="Genêro" claass="control-label col-sm-4"></p:outputLabel>
+	        <div class="col-sm-4">
+	            <p:selectOneRadio value="#{editarObj.genero}">
+	                <f:selectItem itemValue="M" itemLabel="Masculino"></f:selectItem>
+	                <f:selectItem itemValue="F" itemLabel="Feminino"></f:selectItem>
+	            </p:selectOneRadio>
+	        </div>
+	    </div>
+		<div class="form-group">
+	        <p:outputLabel value="Data de Nascimento " class="control-label col-sm-4"/>
+	        <p:inputText value="#{editarObj.dataNascimento}" class="form-control">
+	            <f:convertDateTime pattern="dd/MM/yyyy"/>
+	        </p:inputText>
+	    </div>
+		<div class="form-group">
+		    	
+		    <div class="col-sm-4">
+		        <p:commandButton class="btn btn-primary"
+						action="#{deletarBean.excluir(editarObj.id)}" value="Deletar">
+				</p:commandButton>
+				<p:commandButton class="btn btn-primary"
+						action="index" value="Cancelar">
+				</p:commandButton>
+		    </div>
+		</div>
+	</h:form>
+</h:body>
+</html>

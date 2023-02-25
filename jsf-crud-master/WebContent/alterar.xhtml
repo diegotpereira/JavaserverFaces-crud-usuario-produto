@@ -8,25 +8,49 @@
 
 <h:head>
 	<title>Detalhes de Usuários #{editarObj.nome}</title>
-	<h:outputStylesheet name="/css/bootstrap.min.css" />
+<!-- 	<h:outputStylesheet name="/css/bootstrap.min.css" /> -->
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />  
 	
 </h:head>
 
 
 <h:body>
-	<h:form>
-		<h2>Alterar Dados do Usuário #{editarObj.nome}</h2>
-<!-- 		<h:inputHidden value="#{usuario.id}" /> -->
-		<div>
-		    <h:panelGrid columns="2" cellspacing="20" border="1">
-		        <p:outputLabel value="Nome " for="nome" required="true" class="control-label col-sm-2"/>
-		        <p:inputText id="nome" value="#{editarObj.nome}" required="true" />
-		        
+	<h:form class="form-horizontal">
+		<div class="form-group">
+		    <div class="col-sm-2"></div>
+		    <h2 style="text-align: center;" class="col-sm-4">Alterar Dados do Usuário #{editarObj.nome}</h2>
+		</div>
+		<hr />
+		<div class="form-group">
+		    <p:outputLabel class="control-label col-sm-2">Nome</p:outputLabel>
+		    <div class="col-sm-4">
+		        <p:inputText id="nome" value="#{editarObj.nome}" required="true" class="form-control"/>
+		    </div>
+		</div>
+		<div class="form-group">
+	        <p:outputLabel class="control-label col-sm-2">Genêro</p:outputLabel>
+	        <div class="col-sm-4">
+	            <p:selectOneRadio value="#{editarObj.genero}">
+	                <f:selectItem itemValue="M" itemLabel="Masculino" />
+	                <f:selectItem itemValue="F" itemLabel="Feminino" />
+	            </p:selectOneRadio>
+	        </div>
+	    </div>
+		<div class="form-group">
+	        <p:outputLabel value="Data de Nascimento " class="control-label col-sm-2"/>
+	        <div class="col-sm-4">
+	            <p:inputText value="#{editarObj.dataNascimento}" class="form-control">
+	                 <f:convertDateTime pattern="dd/MM/yyyy"/>
+	            </p:inputText>
+	        </div>
+	    </div>
+		<div class="form-group">
+		    <div class="col-sm-2"></div>	
+		    <div class="col-sm-4">
 		        <p:commandButton class="btn btn-primary"
-						action="#{alterarBean.atualizarUsuario(editarObj)}" value="Atualizar">
+						action="#{atualizarBean.atualizarUsuario(editarObj)}" value="Atualizar">
 				</p:commandButton>
-		        
-		    </h:panelGrid>
+		    </div>
 		</div>
 	</h:form>
 </h:body>

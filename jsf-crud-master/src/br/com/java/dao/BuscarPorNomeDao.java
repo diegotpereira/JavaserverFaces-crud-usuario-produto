@@ -4,47 +4,33 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
-
-import javax.faces.context.FacesContext;
 
 import br.com.java.conexao.Conexao;
 import br.com.java.modelo.Usuario;
 
-public class AlterarDao {
+public class BuscarPorNomeDao {
 	
 	static Connection con = Conexao.getConnection();
 	
-    public Usuario alterarUsuario(Long id) {
+    public Usuario buscarPorNome(String nome) {
 		
-        String SQL = "SELECT * FROM USUARIOS WHERE ID = ?";
-        
-        Map<String, Object> secao = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-        
-        Usuario usuario = new Usuario();
-        
+		String SQL = "SELECT * FROM USUARIOS WHERE NOME = ?";
+		
+		Usuario usuario = null;
+		
 		try {
 			
 			PreparedStatement ps = con.prepareStatement(SQL);
 			ResultSet rs;
-			
-			ps.setLong(1, id);
-			
+			ps.setString(1, nome);
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
 				
 				usuario = new Usuario();
-				
 				usuario.setId(rs.getLong("id"));
 				usuario.setNome(rs.getString("nome"));
-				usuario.setGenero(rs.getString("genero"));
-				usuario.setDataNascimento(rs.getDate("dataNascimento"));
 			}
-			
-			
-			
-			secao.put("editarObj", usuario);
 			
 			rs.close();
 			ps.close();

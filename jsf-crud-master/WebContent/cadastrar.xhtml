@@ -16,33 +16,38 @@
 <h:body>
 	<h:form class="form-horizontal">
 	    <div class="form-group">
-	        <div class="col-sm-4"></div>
-	        <div class="col-sm-4">
-	            <h2>Adicionar Novo Usuário</h2>
-	        </div>
+	        <div class="col-sm-2"></div>
+	        <h2 style="text-align: center;" class="col-sm-4">Adicionar Novo Usuário</h2>
 	    </div>
 	    <hr/>
 	    <div class="form-group">
-	        <p:outputLabel value="Nome " class="control-label col-sm-4"/>
-	        <p:inputText value="#{criarBean.usuario.nome}" class="form-control"/>
+	        <p:outputLabel class="control-label col-sm-2">Nome</p:outputLabel>
+	        <div class="col-sm-4">
+	            <p:inputText value="#{criarBean.usuario.nome}" class="form-control"/>
+	        </div>
 	    </div>
 	    <div class="form-group">
-	        <p:outputLabel value="Genêro" claass="control-label col-sm-4"></p:outputLabel>
+	        <p:outputLabel class="control-label col-sm-2">Gênero</p:outputLabel>
 	        <div class="col-sm-4">
 	            <p:selectOneRadio value="#{criarBean.usuario.genero}">
-	                <f:selectItem itemValue="M" itemLabel="Masculino"></f:selectItem>
-	                <f:selectItem itemValue="F" itemLabel="Feminino"></f:selectItem>
+	                <f:selectItem itemValue="M" itemLabel="Masculino" />
+	                <f:selectItem itemValue="F" itemLabel="Feminino" />
 	            </p:selectOneRadio>
 	        </div>
 	    </div>
 	    <div class="form-group">
-	        <p:outputLabel value="Data de Nascimento " class="control-label col-sm-4"/>
-	        <p:inputText value="#{criarBean.usuario.dataNascimento}" class="form-control">
-	            <f:convertDateTime pattern="dd/MM/yyyy"/>
-	        </p:inputText>
+	        <p:outputLabel value="Data de Nascimento " class="control-label col-sm-2"/>
+	        <div class="col-sm-4">
+	            <p:inputText value="#{criarBean.usuario.dataNascimento}" class="form-control">
+	                  <f:convertDateTime pattern="dd/MM/yyyy"/>
+	            </p:inputText>
+	        </div>
 	    </div>
-	    <div class="col-sm-2">
+	    <div class="form-group">
+	        <div class="col-sm-2"></div>	
+	        <div class="col-sm-4">
 	        <p:commandButton value="Adcionar" action="#{criarBean.criar}" class="btn btn-success"/>
+	    </div>
 	    </div>
 	</h:form>
 </h:body>

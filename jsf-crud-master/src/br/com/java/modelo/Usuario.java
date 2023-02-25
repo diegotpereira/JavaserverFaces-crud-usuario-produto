@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import br.com.java.dao.UsuarioDao;
 
 public class Usuario implements Serializable{
 	
@@ -13,7 +12,7 @@ public class Usuario implements Serializable{
 	private String nome;
 	private String genero;
 	private Date dataNascimento;
-	private UsuarioDao usuarioDao;
+	private int ano;
 	
 	public Usuario() {
 		super();
@@ -59,17 +58,23 @@ public class Usuario implements Serializable{
 		this.dataNascimento = dataNascimento;
 	}
 
-	public String inserirUsuario(Usuario usuario) {
+	public int getAno() {
 		
-		return UsuarioDao.inserirUsuario(usuario);
+//		Usuario usuario = new Usuario();
+		
+		Date dataAtual = new Date();
+//        Date nascimento = getDataNascimento();
+        
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+        int ano1 = Integer.parseInt(sdf.format(dataNascimento));
+        int ano2 = Integer.parseInt(sdf.format(dataAtual));
+        ano = ano2 - ano1;
+        
+		return ano;
 	}
-	
 
-	public UsuarioDao getUsuarioDao() {
-		return usuarioDao;
-	}
-
-	public void setUsuarioDao(UsuarioDao usuarioDao) {
-		this.usuarioDao = usuarioDao;
+	public void setAno(int ano) {
+		this.ano = ano;
 	}
 }
