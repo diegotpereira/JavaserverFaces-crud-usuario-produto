@@ -31,6 +31,7 @@ public class ProdutoListarDao {
 				produto.setQuantidade(rs.getInt("quantidade"));
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setStatus(rs.getBoolean("status"));
+				produto.setLoja(produto.getLoja());
 				
 				lista.add(produto);
 			}

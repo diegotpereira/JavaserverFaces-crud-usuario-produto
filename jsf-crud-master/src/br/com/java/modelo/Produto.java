@@ -11,12 +11,13 @@ public class Produto implements Serializable{
 	private int quantidade;
 	private String descricao;
 	private boolean status;
+	private Loja loja;
 	
 	public Produto() {
 		super();
 	}
 	
-	public Produto(int id, String nome, BigDecimal preco, int quantidade, String descricao, boolean status) {
+	public Produto(int id, String nome, BigDecimal preco, int quantidade, String descricao, boolean status, Loja loja) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -24,6 +25,7 @@ public class Produto implements Serializable{
 		this.quantidade = quantidade;
 		this.descricao = descricao;
 		this.status = status;
+		this.loja = loja;
 	}
 	
 	public int getId() {
@@ -72,5 +74,13 @@ public class Produto implements Serializable{
 	
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public Loja getLoja() {
+		return loja;
+	}
+
+	public void setLoja(Loja loja) {
+		this.loja = loja;
 	}
 }

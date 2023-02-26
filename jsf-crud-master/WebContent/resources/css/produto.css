@@ -1,0 +1,68 @@
+		.row.panel.panel-default.prodhover:hover {
+				    background-color: #e4e4e4;
+				    color:black !important;
+				}
+	
+	     .pesquisar {
+		    width: 100%;
+		    text-align: center;
+		    height: 40px;
+		    margin: 30px;
+		    margin-bottom: 0px;
+		    margin-left: 0px;
+		    background-color: #e6e6e6;
+		    font-size:18px;
+		    border-radius: 4px;
+		}
+		
+		.prodcelula{
+		    padding-left: 11px;
+		    padding-right: 11px;
+		    height: 272px;
+		    width: 234px;
+		}
+		
+		.produtoPainel{
+		    color: #fff;
+		    background-color: #337ab7;
+		    border-color: #337ab7;
+		    
+		}
+		
+		.produtoPainel:hover{
+		    color: #dcdcdc;
+		    background-color: #1d405f;
+		    text-decoration: none;
+		    font-weight: bold;
+		    
+		}
+		
+		.vazio{
+		    
+		    all:unset;
+		}
+		
+		.loja {
+		
+		    width: 100%;
+		    text-align: center;
+		    height: 30px !important;
+		    margin: 30px;
+		    margin-bottom: 20px;
+		    margin-top: 10px;
+		    margin-left: 0px;
+		    background-color: #e6e6e6;
+		    font-size:18px;
+		    border-radius: 4px;
+		    box-shadow: inset 1px 1px 0px 1px #6f6f6f;;
+		    -moz-box-shadow: inset 1px 1px 0px 1px #6f6f6f;
+		   -webkit-box-shadow: inset 1px 1px 0px 1px #6f6f6f;
+		}
+		
+		.resultsc {
+		
+		    padding: 19px;
+		    text-align: right;
+		    font-weight: 700;
+		    font-size: medium;
+		}

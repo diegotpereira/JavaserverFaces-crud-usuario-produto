@@ -1,19 +1,120 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
- xmlns:h="http://java.sun.com/jsf/html"
- xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
-</head>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="produto.css"  />
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		
+	<style>
+	
+	     
+
+    </style>
+</h:head>
 <h:body>
- <ui:composition>
- <ui:define name="content">
- <h1>Welcome Page Content...</h1>
- <h3>Now we know how to use JSF Templates</h3>
- <h4>We can create multiple pages with the same template</h4>
- </ui:define>
- </ui:composition>
+	<div class="container">
+	<h:form>
+	    <div class="row">
+	        <h:inputText styleClass="pesquisar" pt:placeholder="Pesquisar">
+	            <f:ajax />
+	        </h:inputText>
+	    </div>
+	    <div class="row">
+	        <div class="col-xs-6">
+	            <h:selectOneMenu styleClass="loja" >
+	                <f:ajax />
+	                <f:selectItem itemLabel="Pesquisar por loja" />
+	                <f:selectItems value="#{produto.lojas}" var ="loja" itemLabel="#{loja.nome}" itemValue="#{loja.ID}"/>
+	                
+	            </h:selectOneMenu>
+	        </div>
+	        <div class="col-xs-6">
+	            <h:panelGroup>
+	                <div class="resultsc">
+	                    (Máximo de 30 por página) Resultados: <h:outputText />
+	                </div>
+	            </h:panelGroup>
+	        </div>
+	    </div>
+	</h:form>
+		<div class="row">
+			<h:panelGroup>
+				<h:form>
+					<ui:repeat var="item" value="#{produto.produtos}">
+						<div class="col-sm-3 prodcelula">
+							<div class="panel panel-primary">
+								<h:commandLink class="vazio produtoPainel">
+									<div class="produtoPainel">
+										<div class="panel-heading " style="height: 55px;">#{item.nome}</div>
+										<div style="padding: 0px;" class="panel-body">
+											<img src="https://placehold.it/200x110?text=IMAGE"
+												class="img-responsive" style="width: 100%" alt="Image" />
+										</div>
+									</div>
+								</h:commandLink>
+								<div class="panel-footer"
+									style="height: 92px; padding: 5px 15px;">
+
+									<div class="row" style="padding-right: 14px;">
+										<div class="col-xs-6">
+											<span class="prodPrice">R$ #{item.preco}</span>
+										</div>
+										<div class="col-xs-2">
+										    <h:panelGroup>
+										        <h:commandButton style="width:30px">
+											        <f:ajax />
+											        <span class="glyphicon glyphicon-minus" style="position: absolute; left: 23px; top: 8px; pointer-events: none"></span>
+											    </h:commandButton>
+										    </h:panelGroup>
+										</div>
+										<div class="col-xs-2">
+										    <h:outputText />
+										</div>
+										<div class="col-xs-2">
+										    <h:panelGroup>
+										        <h:commandButton style="width:30px">
+											        <f:ajax />
+											        <span class="glyphicon glyphicon-plus" style="position: absolute; left: 20px; top: 8px; pointer-events: none;"></span>
+											    </h:commandButton>
+										    </h:panelGroup>
+										</div>
+										<div class="col-xs-2" style="pointer-events: none;">
+										    <h:panelGroup>
+										        <h:outputText styleClass="" />
+										    </h:panelGroup>
+										</div>
+										<div class="col-xs-2" style="pointer-events: none;">
+										    <h:commandButton>
+										        <span style="position: absolute; left: 12px; top: 8px; pointer-events: none;" class="glyphicon glyphicon-plus"></span>
+										        <f:ajax />
+										    </h:commandButton>
+										</div>
+									</div>
+									<div class="row">
+									    <div class="col align-self-center">
+									        <hr class="separator"></hr>
+									    </div>
+									</div>
+									<div class="row">
+									    <div class="col prodtext">
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:repeat>
+				</h:form>
+			</h:panelGroup>
+			<br></br>
+		</div>
+	</div>
 </h:body>
 </html>
