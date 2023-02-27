@@ -8,28 +8,20 @@
 
 <h:head>
 
-	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="produto.css"  />
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		
-	<style>
-	
-	     
 
-    </style>
 </h:head>
 <h:body>
 	<div class="container">
 	<h:form>
 	    <div class="row">
 	        <h:inputText styleClass="pesquisar" pt:placeholder="Pesquisar">
-	            <f:ajax />
+	            <f:ajax event="keyup" />
 	        </h:inputText>
 	    </div>
 	    <div class="row">
 	        <div class="col-xs-6">
-	            <h:selectOneMenu styleClass="loja" >
+	            <h:selectOneMenu styleClass="loja" value="#{produto.produto.loja.ID}">
 	                <f:ajax />
 	                <f:selectItem itemLabel="Pesquisar por loja" />
 	                <f:selectItems value="#{produto.lojas}" var ="loja" itemLabel="#{loja.nome}" itemValue="#{loja.ID}"/>
@@ -51,7 +43,7 @@
 					<ui:repeat var="item" value="#{produto.produtos}">
 						<div class="col-sm-3 prodcelula">
 							<div class="panel panel-primary">
-								<h:commandLink class="vazio produtoPainel">
+								<h:commandLink class="vazio produtoPainel" style="cursor:pointer" action="#{produto.exibirProduto(item, 1)}">
 									<div class="produtoPainel">
 										<div class="panel-heading " style="height: 55px;">#{item.nome}</div>
 										<div style="padding: 0px;" class="panel-body">
@@ -76,7 +68,9 @@
 										    </h:panelGroup>
 										</div>
 										<div class="col-xs-2">
-										    <h:outputText />
+										    <h:panelGroup>
+										        <h:outputText />
+										    </h:panelGroup>
 										</div>
 										<div class="col-xs-2">
 										    <h:panelGroup>
