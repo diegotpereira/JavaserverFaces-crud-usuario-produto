@@ -39,13 +39,13 @@
 	</h:form>
 		<div class="row">
 			<h:panelGroup>
-				<h:form>
+				<h:form styleClass="vazio">
 					<ui:repeat var="item" value="#{produto.produtos}">
 						<div class="col-sm-3 prodcelula">
 							<div class="panel panel-primary">
-								<h:commandLink class="vazio produtoPainel" style="cursor:pointer" action="#{produto.exibirProduto(item, 1)}">
+								<h:commandLink styleClass="vazio produtoPainel" style="cursor:pointer;" action="#{produto.exibirProduto(item, 1)}">
 									<div class="produtoPainel">
-										<div class="panel-heading " style="height: 55px;">#{item.nome}</div>
+										<div class="panel-heading" style="height: 55px;">#{item.nome}</div>
 										<div style="padding: 0px;" class="panel-body">
 											<img src="https://placehold.it/200x110?text=IMAGE"
 												class="img-responsive" style="width: 100%" alt="Image" />
@@ -67,26 +67,13 @@
 											    </h:commandButton>
 										    </h:panelGroup>
 										</div>
-										<div class="col-xs-2">
-										    <h:panelGroup>
-										        <h:outputText />
-										    </h:panelGroup>
-										</div>
-										<div class="col-xs-2">
-										    <h:panelGroup>
-										        <h:commandButton style="width:30px">
-											        <f:ajax />
-											        <span class="glyphicon glyphicon-plus" style="position: absolute; left: 20px; top: 8px; pointer-events: none;"></span>
-											    </h:commandButton>
-										    </h:panelGroup>
-										</div>
 										<div class="col-xs-2" style="pointer-events: none;">
 										    <h:panelGroup>
 										        <h:outputText styleClass="" />
 										    </h:panelGroup>
 										</div>
-										<div class="col-xs-2" style="pointer-events: none;">
-										    <h:commandButton>
+										<div class="col-xs-2" style="width: 30px">
+										    <h:commandButton styleClass="Hbutton">
 										        <span style="position: absolute; left: 12px; top: 8px; pointer-events: none;" class="glyphicon glyphicon-plus"></span>
 										        <f:ajax />
 										    </h:commandButton>
