@@ -1,7 +1,29 @@
+		
+		
 		.row.panel.panel-default.prodhover:hover {
-				    background-color: #e4e4e4;
-				    color:black !important;
-				}
+		    background-color: #e4e4e4;
+		    color:black !important;
+		}
+		
+		.prodtext{
+    
+		    padding-left: 6px;
+		    padding-right: 6px;
+		}
+		
+		.separador{
+		    position: relative;
+		    left: 16px;
+		    width:80%;
+		    margin: 3px;
+		    margin-top: 7px;
+		    border-color: #b1b1b1;
+		}
+		
+		.vazio{
+		    
+		    all:unset;
+		}
 	
 	     .pesquisar {
 		    width: 100%;
@@ -13,33 +35,6 @@
 		    background-color: #e6e6e6;
 		    font-size:18px;
 		    border-radius: 4px;
-		}
-		
-		.prodcelula{
-		    padding-left: 11px;
-		    padding-right: 11px;
-		    height: 272px;
-		    width: 234px;
-		}
-		
-		.produtoPainel{
-		    color: #fff;
-		    background-color: #337ab7;
-		    border-color: #337ab7;
-		    
-		}
-		
-		.produtoPainel:hover{
-		    color: #dcdcdc;
-		    background-color: #1d405f;
-		    text-decoration: none;
-		    font-weight: bold;
-		    
-		}
-		
-		.vazio{
-		    
-		    all:unset;
 		}
 		
 		.resultsc {
@@ -67,10 +62,32 @@
 		    -webkit-box-shadow: inset 1px 1px 0px 1px #6f6f6f;
 		}
 		
-		.footer {
-		    background-color: #f2f2f2;
-		    padding: 25px;
+		.prodcelula{
+		    padding-left: 11px;
+		    padding-right: 11px;
+		    height: 272px;
+		    width: 234px;
 		}
+		
+		.produtoPainel{
+		    color: #fff;
+		    background-color: #337ab7;
+		    border-color: #337ab7;
+		    
+		}
+		
+		.produtoPainel:hover{
+		    color: #dcdcdc;
+		    background-color: #1d405f;
+		    text-decoration: none;
+		    font-weight: bold;
+		    
+		}
+		
+/* 		.footer { */
+/* 		    background-color: #f2f2f2; */
+/* 		    padding: 25px; */
+/* 		} */
 		
 		.Hbutton {
 			-moz-box-shadow:inset 0px 1px 0px 0px #fed897;
@@ -111,6 +128,33 @@
 		        
 		}
 		
+		.prodPreco {
+		
+		    font-weight: bold;
+		    font-size: 18px;
+		    position: relative;
+		    top: 3px;
+		
+		}
+		
+		.prodContardiv {
+		
+		    width: 32px;
+		    pointer-events: none;
+		    padding: 0px;
+		    text-align: -webkit-center;
+		    right: -8px;
+		}
+		
+		.prodContar{
+		    font-weight: bold;
+		    font-size: 15px;
+		    position: relative;
+		    top: 4px;
+		    text-align: center;
+		    
+		}
+		
 		.Hbutton:hover {
 			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
 			background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
@@ -122,3 +166,50 @@
 			position:relative;
 			top:1px;
 		}
+		
+	
+		
+	   .HbuttonMinus {
+			-moz-box-shadow:inset 0px 1px 0px 0px #fed897;
+			-webkit-box-shadow:inset 0px 1px 0px 0px #fed897;
+			box-shadow:inset 0px 1px 0px 0px #fed897;
+			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+			background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+			background-color:#f6b33d;
+			-webkit-border-top-left-radius:5px;
+			-moz-border-radius-topleft:5px;
+			border-top-left-radius:5px;
+			-webkit-border-top-right-radius:5px;
+			-moz-border-radius-topright:5px;
+			border-top-right-radius:5px;
+			-webkit-border-bottom-right-radius:5px;
+			-moz-border-radius-bottomright:5px;
+			border-bottom-right-radius:5px;
+			-webkit-border-bottom-left-radius:5px;
+			-moz-border-radius-bottomleft:5px;
+			border-bottom-left-radius:5px;
+			text-indent:0;
+			border:1px solid #eda933;
+			display:inline-block;
+			color:#444444;
+			font-family:arial;
+			font-size:14px;
+			font-weight:bold;
+			font-style:normal;
+			height:30px;
+			line-height:14px;
+		        padding: 4px;
+			text-align:center;
+		
+		}
+		
+		.HbuttonMinus:hover {
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
+				background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+				background-color:#d29105;
+			}.HbuttonMinus:active {
+				position:relative;
+				top:1px;
+			}

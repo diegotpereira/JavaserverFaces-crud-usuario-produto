@@ -8,94 +8,106 @@
 
 <h:head>
 
-	<h:outputStylesheet library="css" name="produto.css"  />
+	<h:outputStylesheet name="produto.css"/>
+
 
 </h:head>
 <h:body>
-	<div class="container">
-	<h:form>
-	    <div class="row">
-	        <h:inputText styleClass="pesquisar" pt:placeholder="Pesquisar">
-	            <f:ajax event="keyup" />
-	        </h:inputText>
-	    </div>
-	    <div class="row">
-	        <div class="col-xs-6">
-	            <h:selectOneMenu styleClass="loja" value="#{produto.produto.loja.ID}">
-	                <f:ajax />
-	                <f:selectItem itemLabel="Pesquisar por loja" />
-	                <f:selectItems value="#{produto.lojas}" var ="loja" itemLabel="#{loja.nome}" itemValue="#{loja.ID}"/>
-	                
-	            </h:selectOneMenu>
-	        </div>
-	        <div class="col-xs-6">
-	            <h:panelGroup>
-	                <div class="resultsc">
-	                    (Máximo de 30 por página) Resultados: <h:outputText />
-	                </div>
-	            </h:panelGroup>
-	        </div>
-	    </div>
-	</h:form>
-		<div class="row">
-			<h:panelGroup>
-				<h:form styleClass="vazio">
-					<ui:repeat var="item" value="#{produto.produtos}">
-						<div class="col-sm-3 prodcelula">
-							<div class="panel panel-primary">
-								<h:commandLink styleClass="vazio produtoPainel" style="cursor:pointer;" action="#{produto.exibirProduto(item, 1)}">
-									<div class="produtoPainel">
-										<div class="panel-heading" style="height: 55px;">#{item.nome}</div>
-										<div style="padding: 0px;" class="panel-body">
-											<img src="https://placehold.it/200x110?text=IMAGE"
-												class="img-responsive" style="width: 100%" alt="Image" />
-										</div>
-									</div>
-								</h:commandLink>
-								<div class="panel-footer"
-									style="height: 92px; padding: 5px 15px;">
+	<ui:composition template="/templates/principalPagina.xhtml">
+		<ui:define name="content">
+			<div class="container">
+				<h:form>
+					<div class="row">
+						<h:inputText styleClass="pesquisar" pt:placeholder="Pesquisar">
+							<f:ajax event="keyup" />
+						</h:inputText>
+					</div>
+					<div class="row">
+						<div class="col-xs-6">
+							<h:selectOneMenu styleClass="loja"
+								value="#{produto.produto.loja.ID}">
+								<f:ajax />
+								<f:selectItem itemLabel="Pesquisar por loja" />
+								<f:selectItems value="#{produto.lojas}" var="loja"
+									itemLabel="#{loja.nome}" itemValue="#{loja.ID}" />
 
-									<div class="row" style="padding-right: 14px;">
-										<div class="col-xs-6">
-											<span class="prodPrice">R$ #{item.preco}</span>
+							</h:selectOneMenu>
+						</div>
+						<div class="col-xs-6">
+							<h:panelGroup>
+								<div class="resultsc">
+									(Máximo de 30 por página) Resultados:
+									<h:outputText />
+								</div>
+							</h:panelGroup>
+						</div>
+					</div>
+				</h:form>
+				<div class="row">
+					<h:panelGroup>
+						<h:form styleClass="vazio">
+							<ui:repeat var="item" value="#{produto.produtos}">
+								<div class="col-sm-3 prodcelula">
+									<div class="panel panel-primary">
+										<h:commandLink styleClass="vazio produtoPainel"
+											style="cursor:pointer;"
+											action="#{produto.exibirProduto(item, 1)}">
+											<div class="produtoPainel">
+												<div class="panel-heading" style="height: 55px;">#{item.nome}</div>
+												<div style="padding: 0px;" class="panel-body">
+													<img src="https://placehold.it/200x110?text=IMAGE"
+														class="img-responsive" style="width: 100%" alt="Image" />
+												</div>
+											</div>
+										</h:commandLink>
+										<div class="panel-footer"
+											style="height: 92px; padding: 5px 15px;">
+
+											<div class="row" style="padding-right: 14px;">
+												<div class="col-xs-6">
+													<span class="prodPreco">R$ #{item.preco}</span>
+												</div>
+												<div class="col-xs-2">
+													<h:panelGroup>
+														<h:commandButton style="width:30px" styleClass="HbuttonMinus">
+															<f:ajax />
+															<span class="glyphicon glyphicon-minus"
+																style="position: absolute; left: 23px; top: 8px; pointer-events: none"></span>
+														</h:commandButton>
+													</h:panelGroup>
+												</div>
+												<div class="col-xs-2 prodContardiv" style="pointer-events: none;">
+													<h:panelGroup>
+														<h:outputText styleClass="prodContar" />
+													</h:panelGroup>
+												</div>
+												<div class="col-xs-2" style="width: 30px">
+													<h:commandButton styleClass="Hbutton" style="width: 30px">
+														<span class="glyphicon glyphicon-plus"
+															style="position: absolute; left: 12px; top: 8px; pointer-events: none;"></span>
+														<f:ajax />
+													</h:commandButton>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col align-self-center">
+													<hr class="separador"></hr>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col prodtext"></div>
+											</div>
 										</div>
-										<div class="col-xs-2">
-										    <h:panelGroup>
-										        <h:commandButton style="width:30px">
-											        <f:ajax />
-											        <span class="glyphicon glyphicon-minus" style="position: absolute; left: 23px; top: 8px; pointer-events: none"></span>
-											    </h:commandButton>
-										    </h:panelGroup>
-										</div>
-										<div class="col-xs-2" style="pointer-events: none;">
-										    <h:panelGroup>
-										        <h:outputText styleClass="" />
-										    </h:panelGroup>
-										</div>
-										<div class="col-xs-2" style="width: 30px">
-										    <h:commandButton styleClass="Hbutton">
-										        <span style="position: absolute; left: 12px; top: 8px; pointer-events: none;" class="glyphicon glyphicon-plus"></span>
-										        <f:ajax />
-										    </h:commandButton>
-										</div>
-									</div>
-									<div class="row">
-									    <div class="col align-self-center">
-									        <hr class="separator"></hr>
-									    </div>
-									</div>
-									<div class="row">
-									    <div class="col prodtext">
-									    </div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</ui:repeat>
-				</h:form>
-			</h:panelGroup>
-			<br></br>
-		</div>
-	</div>
+							</ui:repeat>
+
+						</h:form>
+					</h:panelGroup>
+					<br></br>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
