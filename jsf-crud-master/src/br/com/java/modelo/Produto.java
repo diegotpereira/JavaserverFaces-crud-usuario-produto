@@ -12,6 +12,7 @@ public class Produto implements Serializable{
 	private String descricao;
 	private boolean status;
 	private Loja loja;
+	private int numNoCarrinho;
 	
 	public Produto() {
 		super();
@@ -83,4 +84,13 @@ public class Produto implements Serializable{
 	public void setLoja(Loja loja) {
 		this.loja = loja;
 	}
+
+	public int getNumNoCarrinho() {
+		return numNoCarrinho;
+	}
+
+	public void setNumNoCarrinho(int numNoCarrinho) {
+		this.numNoCarrinho = numNoCarrinho;
+	}
+	
 }
