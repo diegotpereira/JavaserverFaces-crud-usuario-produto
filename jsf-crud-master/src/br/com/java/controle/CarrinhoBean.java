@@ -21,12 +21,11 @@ public class CarrinhoBean implements Serializable{
 	
 	public Boolean ProdutoNoCarrinho(Produto produto) {
 		
-//		if (ObterCarrinhoQuantidade(produto.getId()) == 0) {
-//			
-//			return false;
-//		}
+		if (ObterCarrinhoQuantidade(produto.getId()) == 0) {
+			
+			return false;
+		}
 		
-		System.out.println("++");
 		return true;
 		
 	}
