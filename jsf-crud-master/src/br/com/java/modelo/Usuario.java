@@ -13,6 +13,7 @@ public class Usuario implements Serializable{
 	private String genero;
 	private Date dataNascimento;
 	private int ano;
+	private Produto produto;
 	
 	public Usuario() {
 		super();
@@ -76,5 +77,13 @@ public class Usuario implements Serializable{
 
 	public void setAno(int ano) {
 		this.ano = ano;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 }
