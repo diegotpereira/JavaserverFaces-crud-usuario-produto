@@ -7,97 +7,101 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 
-	<h:outputStylesheet library="css" name="exibirProduto.css" />
+	<h:outputStylesheet library="css" name="produtoExibir.css" />
 </h:head>
 <h:body>
-	<h1>Exibir produto</h1>
-	<h:form styleClass="vazio">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-2">
-					<h:button value="voltar"
-						style="width: 100px; height: 40px; line-height: 13px;"
-						styleClass="pbotao" outcome="#{produto.voltarPagina}">
-						<span
-							style="position: absolute; left: 23px; top: 13px; pointer-events: none;"
-							class="glyphicon glyphicon-arrow-left"></span>
-					</h:button>
-				</div>
-				<div class="col-lg-10"></div>
-			</div>
-			<hr />
-			<div class="row panel panel-default">
-				<div class="col-lg-6" style="padding: 0px">
-					<img class="card-img-top img-fluid"
-						src="http://placehold.it/500x400" alt="" />
-				</div>
-				<div class="col-lg-6">
+	<ui:composition template="templates/principalPagina.xhtml">
+		<ui:define name="content">
+			<h:form styleClass="vazio">
+				<div class="container">
 					<div class="row">
-						<h3 class="">#{produto.exibirProduto.nome}</h3>
-						<h4>R$ #{produto.exibirProduto.preco}</h4>
-						<p></p>
-						<span class="text-warning">&#9733; &#9733; &#9733; &#9733;
-							&#9734;</span> 4.0 estrelas
-						<hr />
-						<p>#{produto.exibirProduto.descricao}</p>
-					</div>
-					<div class="row">
-						<div class="col-xs-9"></div>
-						<div class="col-xs-1">
-							<h:panelGroup>
-								<h:commandButton style="width: 30px;">
-									<f:ajax />
-									<span
-										style="position: absolute; left: 23px; top: 8px; pointer-events: none;"
-										class="glyphicon glyphicon-minus"></span>
-								</h:commandButton>
-							</h:panelGroup>
-						</div>
-						<div class="col-xs-1" style="pointer-events: none;">
-							<h:panelGroup>
-							    <h:outputText></h:outputText>
-							</h:panelGroup>
-						</div>
-						<div class="col-xs-1">
-						    <h:commandButton style="width: 30px">
+						<div class="col-lg-2">
+							<h:button value="voltar"
+								style="width: 100px; height: 40px; line-height: 13px;"
+								styleClass="pbotao" outcome="#{produto.voltarPagina}">
 								<span
-									style="position: absolute; left: 13px; top: 8px; pointer-events: none;"
-									class="glyphicon glyphicon-plus"></span>
-								<f:ajax />
-							</h:commandButton>
+									style="position: absolute; left: 23px; top: 13px; pointer-events: none;"
+									class="glyphicon glyphicon-arrow-left"></span>
+							</h:button>
+						</div>
+						<div class="col-lg-10"></div>
+					</div>
+					<hr />
+					<div class="row panel panel-default">
+						<div class="col-lg-6" style="padding: 0px">
+							<img class="card-img-top img-fluid"
+								src="http://placehold.it/500x400" alt="" />
+						</div>
+						<div class="col-lg-6">
+							<div class="row">
+								<h3 class="">#{produto.produtoExibir.nome}</h3>
+								<h4>R$ #{produto.produtoExibir.preco}</h4>
+								<p></p>
+								<span class="text-warning">&#9733; &#9733; &#9733;
+									&#9733; &#9734;</span> 4.0 estrelas
+								<hr />
+								<p>#{produto.produtoExibir.descricao}</p>
+							</div>
+							<div class="row">
+								<div class="col-xs-9"></div>
+								<div class="col-xs-1">
+									<h:panelGroup>
+										<h:commandButton rendered="#{carrinho.ProdutoNoCarrinho(produto.produtoExibir)}" style="width: 30px;" styleClass="HbuttonMinus" action="#{carrinho.PegarProdutoNoCarrinho(produto.produtoExibir)}">
+											<f:ajax />
+											<span
+												style="position: absolute; left: 23px; top: 8px; pointer-events: none;"
+												class="glyphicon glyphicon-minus"></span>
+										</h:commandButton>
+									</h:panelGroup>
+								</div>
+								<div class="col-xs-1 prodContardiv" style="pointer-events: none;">
+									<h:panelGroup>
+										<h:outputText value="#{carrinho.ObterCarrinhoQuantidade(produto.produtoExibir.id)}"/>
+									</h:panelGroup>
+								</div>
+								<div class="col-xs-1">
+									<h:commandButton style="width: 30px" styleClass="Hbutton" action="#{carrinho.AdcionarNoCarrinho(produto.produtoExibir)}">
+										<span
+											style="position: absolute; left: 13px; top: 8px; pointer-events: none;"
+											class="glyphicon glyphicon-plus"></span>
+										<f:ajax execute="@this" render="cart cartnum cartcost cartgtotal navbar"/>
+									</h:commandButton>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<div class="row panel panel-default">
+						<div class="card card-outline-secondary my-4"
+							style="padding: 20px;">
+							<div class="card-header">
+								<h4>revisão de produtos</h4>
+							</div>
+							<div class="card-body">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+									Omnis et enim aperiam inventore, similique necessitatibus neque
+									non! Doloribus, modi sapiente laboriosam aperiam fugiat
+									laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+								<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+								<hr />
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+									Omnis et enim aperiam inventore, similique necessitatibus neque
+									non! Doloribus, modi sapiente laboriosam aperiam fugiat
+									laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+								<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+								<hr />
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+									Omnis et enim aperiam inventore, similique necessitatibus neque
+									non! Doloribus, modi sapiente laboriosam aperiam fugiat
+									laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+								<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+								<hr />
+								<a href="#" class="btn btn-success">Deixe um comentário</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row panel panel-default">
-				<div class="card card-outline-secondary my-4" style="padding: 20px;">
-					<div class="card-header">
-						<h4>revisão de produtos</h4>
-					</div>
-					<div class="card-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Omnis et enim aperiam inventore, similique necessitatibus neque
-							non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-							Sequi mollitia, necessitatibus quae sint natus.</p>
-						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-						<hr />
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Omnis et enim aperiam inventore, similique necessitatibus neque
-							non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-							Sequi mollitia, necessitatibus quae sint natus.</p>
-						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-						<hr />
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Omnis et enim aperiam inventore, similique necessitatibus neque
-							non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-							Sequi mollitia, necessitatibus quae sint natus.</p>
-						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-						<hr />
-						<a href="#" class="btn btn-success">Deixe um comentário</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</h:form>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

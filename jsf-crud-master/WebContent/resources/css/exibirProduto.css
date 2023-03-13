@@ -44,3 +44,12 @@
 	position:relative;
 	top:1px;
 }
+
+.prodContardiv{
+    width: 32px;
+    pointer-events: none;
+    padding: 0px;
+    text-align: -webkit-center;
+    right: -8px;
+    
+}

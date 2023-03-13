@@ -10,36 +10,39 @@ public class ListarProdutoPorIdDao {
 	
 	static Connection con = Conexao.getConnection();
 	
-	public Produto pesquisarProdutoPorId(Produto produto) {
+	public Produto pesquisarProdutoPorId(int produtoId, Produto produto) {
 		
-//		Produto produto = new Produto();
-		Loja loja = new Loja();
+//		Produto produto = null;
 		
+		Loja loja;
 		
+		String SQL = "SELECT PRODUTOS.ID,PRODUTOS.STATUS, PRODUTOS.NOME, PRODUTOS.LOJAID, PRODUTOS.PRECO, PRODUTOS.DESCRICAO, LOJA.ID AS LOJAID, LOJA.NOME AS LOJANOME"
+				+ "FROM PRODUTOS "
+				+ "INNER JOIN LOJA ON PRODUTOS.LOJAID = LOJA.ID"
+				+ "WHERE PRODUTOS.ID = ?"
+				+ "FETCH FIRST 25 ROWS ONLY";
 		
-		
+		PreparedStatement ps;
 		
 		try {
 			
-			String SQL = "SELECT PRODUTO.ID,PRODUTO.STATUS, PRODUTO.NOME, PRODUTO.LOJAID, PRODUTO.PRECO, PRODUTO.DESCRICAO, LOJA.ID AS LOJAID, LOJA.NOME AS LOJANOME"
-					+ "FROM PRODUTOS "
-					+ "INNER JOIN LOJA ON PRODUTO.LOJAID = LOJA.ID"
-					+ "WHERE PRODUTO.ID = ?"
-					+ "FETCH FIRST 25 ROWS ONLY";
+			ps = con.prepareStatement(SQL);
+			ps.setInt(1, produtoId);
 			
-			PreparedStatement ps = con.prepareStatement(SQL);
 			ResultSet rs = ps.executeQuery();
-			
-			ps.setInt(1, rs.getInt("produtoId"));
-			
+						
+			System.out.println(produto.getId());
+			System.err.println(produto.getNome());
 			
 			
 			
 			if (rs.next()) {
 				
+				loja = new Loja();
+				produto = new Produto();
+								
 				loja.setID(rs.getInt("lojaid"));
 				loja.setNome(rs.getString("nome"));
-				
 				
 				produto.setId(rs.getInt("id"));
 				produto.setNome(rs.getString("nome"));
@@ -47,9 +50,6 @@ public class ListarProdutoPorIdDao {
 				produto.setQuantidade(rs.getInt("quantidade"));
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setLoja(produto.getLoja());
-				
-				
-				
 				
 			}
 			

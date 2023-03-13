@@ -8,7 +8,7 @@ public class ProdutoEstaNoCarrinhoDao {
 	
 	static Connection con = Conexao.getConnection();
 	
-	public boolean produtoEstaNoCarrinho(int produtoId, int usuarioId) {
+	public boolean produtoEstaNoCarrinho(int produtoId, long usuarioId) {
 		
 		boolean existe = false;
 		
@@ -20,7 +20,7 @@ public class ProdutoEstaNoCarrinhoDao {
 			ResultSet rs;
 			
 			ps.setInt(1, produtoId);
-			ps.setInt(2, usuarioId);
+			ps.setLong(2, usuarioId);
 			
 			rs = ps.executeQuery();
 			

@@ -82,10 +82,10 @@
 													</h:panelGroup>
 												</div>
 												<div class="col-xs-2" style="width: 30px">
-													<h:commandButton styleClass="Hbutton" style="width: 30px">
+													<h:commandButton styleClass="Hbutton" style="width: 30px" action="#{carrinho.AdcionarNoCarrinho(item)}">
 														<span class="glyphicon glyphicon-plus"
 															style="position: absolute; left: 12px; top: 8px; pointer-events: none;"></span>
-														<f:ajax />
+														<f:ajax execute="@this" render="cart cartnum cartcost cartgtotal navbar"/>
 													</h:commandButton>
 												</div>
 											</div>

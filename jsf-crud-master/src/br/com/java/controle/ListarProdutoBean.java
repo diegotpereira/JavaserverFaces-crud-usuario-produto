@@ -23,7 +23,7 @@ public class ListarProdutoBean implements Serializable{
 	private List<Loja> lojas;
 	ListarLojaDao listarLojaDao = new ListarLojaDao();
 	ListarProdutoPorIdDao listarProdutoPorIdDao = new ListarProdutoPorIdDao();
-	private Produto exibirProduto;;
+	private Produto produtoExibir;
 	
 	private int pagina = 1;
 	
@@ -68,24 +68,36 @@ public class ListarProdutoBean implements Serializable{
 	
 	public String exibirProduto(Produto produto, int pagina) {
 		
+		this.produto = produto;
+		
+//		if(produto == null) {
+//			
+//			produto = new Produto();
+//		}
+		
 		this.pagina = pagina;
 		
-		exibirProduto = listarProdutoPorIdDao.pesquisarProdutoPorId(produto);
+		produtoExibir = (Produto) listarProdutoPorIdDao.pesquisarProdutoPorId(produto.getId(), produto);
 		
-		return "ExibirP";
+		return "ExibirP"; // exibirProduto.xhtml	
 	}
 	
 	public void pesquisarProdutos() {
 		
 //		produto = listarProdutoPorIdDao.pesquisarProdutoPorId();
 	}
-
-	public Produto getExibirProduto() {
-		return exibirProduto;
+	
+	public Produto getProdutoExibir() {
+		
+		if (produtoExibir == null) {
+			
+			produtoExibir = listarProdutoPorIdDao.pesquisarProdutoPorId(produto.getId(), produto);
+		}
+		return produtoExibir;
 	}
 
-	public void setExibirProduto(Produto exibirProduto) {
-		this.exibirProduto = exibirProduto;
+	public void setProdutoExibir(Produto produtoExibir) {
+		this.produtoExibir = produtoExibir;
 	}
 
 	public int getPagina() {

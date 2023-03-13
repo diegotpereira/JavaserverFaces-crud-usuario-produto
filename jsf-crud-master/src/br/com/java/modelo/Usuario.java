@@ -13,7 +13,7 @@ public class Usuario implements Serializable{
 	private String genero;
 	private Date dataNascimento;
 	private int ano;
-	private Produto produto;
+	public Produto produto;
 	
 	public Usuario() {
 		super();
