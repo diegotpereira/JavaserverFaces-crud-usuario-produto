@@ -70,7 +70,7 @@
 												<div class="col-xs-2">
 													<h:panelGroup>
 														<h:commandButton rendered="#{carrinho.ProdutoNoCarrinho(item)}" style="width:30px" styleClass="HbuttonMinus" action="#{carrinho.PegarProdutoNoCarrinho(item)}">
-															<f:ajax />
+															<f:ajax execute="@this" render="cart cartnum cartcost cartgtotal navbar"/>
 															<span class="glyphicon glyphicon-minus"
 																style="position: absolute; left: 23px; top: 8px; pointer-events: none"></span>
 														</h:commandButton>

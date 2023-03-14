@@ -5,18 +5,18 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
               
               <navigation-rule>
-              <from-view-id>*</from-view-id>
-	              <navigation-case>
-			            <from-outcome>ProdutoP</from-outcome>
-			            <to-view-id>/produtos.xhtml</to-view-id>
-				  </navigation-case>
-				  <navigation-case>
-			            <from-outcome>ExibirP</from-outcome>
-			            <to-view-id>/exibirProduto.xhtml</to-view-id>
-				  </navigation-case>		      
-			      <navigation-case>
-		            <from-outcome>HomeP</from-outcome>
-		            <to-view-id>/index.xhtml</to-view-id>
-		        </navigation-case>
+	              <from-view-id>*</from-view-id>
+		              <navigation-case>
+				            <from-outcome>ProdutoP</from-outcome>
+				            <to-view-id>/produtos.xhtml</to-view-id>
+					  </navigation-case>
+					  <navigation-case>
+				            <from-outcome>ExibirP</from-outcome>
+				            <to-view-id>/exibirProduto.xhtml</to-view-id>
+					  </navigation-case>		      
+				      <navigation-case>
+			            <from-outcome>HomeP</from-outcome>
+			            <to-view-id>/index.xhtml</to-view-id>
+			        </navigation-case>
               </navigation-rule>
 </faces-config>

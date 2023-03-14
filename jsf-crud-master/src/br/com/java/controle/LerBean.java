@@ -12,7 +12,7 @@ import javax.inject.Named;
 import br.com.java.dao.ListarDao;
 import br.com.java.modelo.Usuario;
 
-@Named
+@Named(value = "usuario")
 @RequestScoped
 public class LerBean implements Serializable{
 	
@@ -20,6 +20,9 @@ public class LerBean implements Serializable{
 	private ListarDao listarDao = new ListarDao();
 	Usuario usuario;
 	int ano;
+	
+	private boolean logado = false;
+	private boolean Admin = false;
 	
 	public List<Usuario> getLista() {
 			

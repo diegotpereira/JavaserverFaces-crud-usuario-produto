@@ -41,13 +41,14 @@
 									&#9733; &#9734;</span> 4.0 estrelas
 								<hr />
 								<p>#{produto.produtoExibir.descricao}</p>
+								<p>#{produto.produtoExibir.id}</p>
 							</div>
 							<div class="row">
 								<div class="col-xs-9"></div>
 								<div class="col-xs-1">
 									<h:panelGroup>
 										<h:commandButton rendered="#{carrinho.ProdutoNoCarrinho(produto.produtoExibir)}" style="width: 30px;" styleClass="HbuttonMinus" action="#{carrinho.PegarProdutoNoCarrinho(produto.produtoExibir)}">
-											<f:ajax />
+											<f:ajax execute="@this" render="cart cartnum cartcost cartgtotal navbar"/>
 											<span
 												style="position: absolute; left: 23px; top: 8px; pointer-events: none;"
 												class="glyphicon glyphicon-minus"></span>
@@ -60,7 +61,7 @@
 									</h:panelGroup>
 								</div>
 								<div class="col-xs-1">
-									<h:commandButton style="width: 30px" styleClass="Hbutton" action="#{carrinho.AdcionarNoCarrinho(produto.produtoExibir)}">
+									<h:commandButton styleClass="Hbutton" style="width:30px;" action="#{carrinho.AdcionarNoCarrinho(produto.produtoExibir)}">
 										<span
 											style="position: absolute; left: 13px; top: 8px; pointer-events: none;"
 											class="glyphicon glyphicon-plus"></span>

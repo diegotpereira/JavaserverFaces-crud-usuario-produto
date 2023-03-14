@@ -108,12 +108,18 @@ public class CarrinhoBean implements Serializable{
 	
 	public void AdcionarNoCarrinho(Produto produto) {
 		
-		usuario.setProduto(produto);
+		if (produto == null) {
+			
+			
+			return ;
+		}
 		
-//		if (produto ==  null) {
-//			
-//			produto = new Produto();
-//		}
+//		usuarioId = 23;
+//		usuario.setId(usuarioId);
+//		
+//		produto.setId(6);
+		
+		usuario.setProduto(produto);
 		
 		boolean existes = (boolean) produtoEstaNoCarrinhoDao.produtoEstaNoCarrinho(usuario.produto.getId(), usuarioId);
 		boolean sucesso = false;
