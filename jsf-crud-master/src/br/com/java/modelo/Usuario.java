@@ -15,6 +15,27 @@ public class Usuario implements Serializable{
 	private int ano;
 	public Produto produto;
 	
+	private String userName;
+	private Password password;
+	private boolean Admin;
+	private boolean logado = false;
+	
+	public boolean isLogado() {
+		return logado;
+	}
+
+	public void setLogado(boolean logado) {
+		this.logado = logado;
+	}
+	
+	public boolean isAdmin() {
+		return Admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		Admin = admin;
+	}
+
 	public Usuario() {
 		super();
 	}
@@ -86,4 +107,22 @@ public class Usuario implements Serializable{
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Password getPassword() {
+		return password;
+	}
+
+	public void setPassword(Password password) {
+		this.password = password;
+	}
+	
+	
 }

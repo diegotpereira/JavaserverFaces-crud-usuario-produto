@@ -117,7 +117,7 @@ public class CarrinhoBean implements Serializable{
 //		usuarioId = 23;
 //		usuario.setId(usuarioId);
 //		
-//		produto.setId(6);
+		produto.setId(6);
 		
 		usuario.setProduto(produto);
 		

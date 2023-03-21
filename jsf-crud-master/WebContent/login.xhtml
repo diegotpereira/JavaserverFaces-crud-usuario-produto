@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+		crossorigin="anonymous"></link>
+	<h:outputStylesheet library="css" name="login.css" />
+	<title>Groceries</title>
+</h:head>
+<h:body>
+	<div class="loginPanel panel">
+	    <h1>Sistema</h1>
+	    <h2>Login</h2>
+	    <h:form class="formPainel">
+	    <h:messages />
+	    <div class="painelEntrada">
+	        <h:message for="usuarioNome" />
+	        <p class="entradaTexto">Usuario Nome: </p>
+	        <h:inputText id="username" value="#{usuario.username}">
+	            <f:validateLength />
+	        </h:inputText>
+	    </div>
+	    <div class="painelEntrada">
+	        <h:message for="senha" />
+	        <p class="entradaTexto">Senha: </p>
+	        <h:inputSecret id="password" value="#{usuario.password}">
+	        </h:inputSecret>
+	    </div>
+	    <div class="painelBotao">
+	        <p><h:commandButton value="Entrar" action="#{usuario.Login()}"> </h:commandButton>
+	        </p>
+	        <p><h:button value="Criar Conta"></h:button>
+	        </p>
+	    </div>
+	    </h:form>
+	</div>
+
+</h:body>
+</html>
