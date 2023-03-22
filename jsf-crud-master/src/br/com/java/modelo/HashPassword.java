@@ -1,13 +1,22 @@
 package br.com.java.modelo;
 
-import java.util.*;
 import java.nio.charset.StandardCharsets;
-import java.security.*;
-import java.util.logging.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import br.com.java.modelo.Password;
 
 public class HashPassword {
 	
-	private Password password;
+	Password password;
+	
+	public HashPassword(Password password) {
+		
+		this.password = password;
+	}
 
 	public Password getPassword(Password password) {
 		return password;

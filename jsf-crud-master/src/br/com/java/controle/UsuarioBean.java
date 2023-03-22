@@ -8,9 +8,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import br.com.java.dao.BuscarPorUsuarioNomeDao;
 import br.com.java.dao.BuscarUsuarioPorIdDao;
-import br.com.java.modelo.HashPassword;
 import br.com.java.modelo.Password;
 import br.com.java.modelo.Usuario;
+import br.com.java.modelo.HashPassword;
 
 @Named(value = "usuario")
 @SessionScoped
@@ -46,6 +46,18 @@ public class UsuarioBean implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public HashPassword getHashPassword() {
+		return hashPassword;
+	}
+	public void setHashPassword(HashPassword hashPassword) {
+		this.hashPassword = hashPassword;
 	}
 	
 	public String Login() {
@@ -100,5 +112,4 @@ public class UsuarioBean implements Serializable{
 		}
 //		return usuario;
 	}
-
 }
