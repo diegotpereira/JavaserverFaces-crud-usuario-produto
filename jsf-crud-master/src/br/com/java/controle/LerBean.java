@@ -21,7 +21,7 @@ import br.com.java.modelo.HashPassword;
 import br.com.java.modelo.Password;
 import br.com.java.modelo.Usuario;
 
-@Named(value = "usuario")
+@Named(value = "lerBean")
 @RequestScoped
 public class LerBean implements Serializable{
 	
