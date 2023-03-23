@@ -20,45 +20,14 @@ public class UsuarioBean implements Serializable{
 	private boolean Admin = false;
 	private String username;
 	private String password;
-	Usuario usuario;
+	private Usuario usuario;
+	
 	private HashPassword hashPassword;
 	
 	public boolean isLogado() {
 		return logado;
 	}
-	public void setLogado(boolean logado) {
-		this.logado = logado;
-	}
-	public boolean isAdmin() {
-		return Admin;
-	}
-	public void setAdmin(boolean admin) {
-		Admin = admin;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-	public HashPassword getHashPassword() {
-		return hashPassword;
-	}
-	public void setHashPassword(HashPassword hashPassword) {
-		this.hashPassword = hashPassword;
-	}
+	
 	
 	public String Login() {
 		
@@ -111,5 +80,39 @@ public class UsuarioBean implements Serializable{
 			return "LoginP";
 		}
 //		return usuario;
+	}
+	
+	public void setLogado(boolean logado) {
+		this.logado = logado;
+	}
+	public boolean isAdmin() {
+		return Admin;
+	}
+	public void setAdmin(boolean admin) {
+		Admin = admin;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public HashPassword getHashPassword() {
+		return hashPassword;
+	}
+	public void setHashPassword(HashPassword hashPassword) {
+		this.hashPassword = hashPassword;
 	}
 }

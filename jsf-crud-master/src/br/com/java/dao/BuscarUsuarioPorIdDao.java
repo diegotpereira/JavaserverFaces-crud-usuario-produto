@@ -19,9 +19,7 @@ public class BuscarUsuarioPorIdDao {
 		Usuario usuario = null;
 		Password password = null;
 		
-		String SQL = "SELECT USUARIOS.ID AS USUARIOID, USUARIOS.NOME, USUARIOS.ADMIN, USUARIOS.SALT, USUARIOS.PASSWORD"
-				   + "FROM USUARIOS"
-				   + "WHERE USUARIOS.ID = ? ";
+		String SQL = "SELECT USUARIOS.ID AS USUARIOID, USUARIOS.NOME, USUARIOS.ADMIN, USUARIOS.SALT, USUARIOS.PASSWORD FROM USUARIOS WHERE USUARIOS.ID = ? ";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(SQL);
@@ -38,7 +36,7 @@ public class BuscarUsuarioPorIdDao {
 				usuario = new Usuario();
 				usuario.setPassword(password);
 				usuario.setNome(rs.getString("nome"));
-				usuario.setUserName(rs.getString("usuarionome"));
+				usuario.setUserName(rs.getString("userName"));
 				usuario.setAdmin(rs.getBoolean("ADMIN"));
 			}
 			
