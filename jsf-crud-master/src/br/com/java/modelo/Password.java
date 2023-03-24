@@ -1,5 +1,8 @@
 package br.com.java.modelo;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Password {
 	
 	private String password;
@@ -36,10 +39,44 @@ public class Password {
 	public void setPassword2(String password2) {
 		this.password2 = password2;
 	}
-
+	
 	public String getHashedPassword() {
-		return HashedPassword;
-	}
+	      try {
+	         // Obtem uma instância do algoritmo de hash SHA-256
+	         MessageDigest md = MessageDigest.getInstance("SHA-256");
+	         // Calcula o hash da senha
+	         byte[] hashedPassword = md.digest(password.getBytes());
+	         // Converte o hash para uma representação hexadecimal
+	         StringBuilder sb = new StringBuilder();
+	         for (byte b : hashedPassword) {
+	            sb.append(String.format("%02x", b));
+	         }
+	         return sb.toString();
+	      } catch (NoSuchAlgorithmException e) {
+	         // Se o algoritmo SHA-256 não estiver disponível, lançar uma exceção
+	         throw new RuntimeException("Erro ao gerar hash da senha", e);
+	      }
+	   }
+
+//	public String getHashedPassword() {
+//		
+//		if (this.password == null || this.Salt == null) {
+//			
+//		}
+//		
+//		try {
+//            MessageDigest md = MessageDigest.getInstance("SHA-256"); // instancia o algoritmo SHA-256
+//            byte[] hashedPassword = md.digest(password.getBytes()); // calcula o hash da senha
+//            StringBuilder sb = new StringBuilder(); // cria um StringBuilder para armazenar o hash em formato hexadecimal
+//            for (byte b : hashedPassword) {
+//                sb.append(String.format("%02x", b));
+//            }
+//            return sb.toString(); // retorna o hash em formato hexadecimal
+//        } catch (NoSuchAlgorithmException e) {
+//            throw new RuntimeException("Erro ao gerar hash da senha", e);
+//        }
+//		
+//	}
 
 	public void setHashedPassword(String hashedPassword) {
 		HashedPassword = hashedPassword;

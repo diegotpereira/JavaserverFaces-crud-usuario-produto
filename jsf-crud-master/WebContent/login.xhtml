@@ -20,18 +20,18 @@
 	    <div class="painelEntrada">
 	        <h:message for="usuarioNome" />
 	        <p class="entradaTexto">Usuario Nome: </p>
-	        <h:inputText id="username" value="#{lerBean.username}">
+	        <h:inputText id="username" value="#{usuario.username}">
 	            <f:validateLength />
 	        </h:inputText>
 	    </div>
 	    <div class="painelEntrada">
 	        <h:message for="senha" />
 	        <p class="entradaTexto">Senha: </p>
-	        <h:inputSecret id="password" value="#{lerBean.password}">
+	        <h:inputSecret id="password" value="#{usuario.password}">
 	        </h:inputSecret>
 	    </div>
 	    <div class="painelBotao">
-	        <p><h:commandButton value="Entrar" action="#{lerBean.Login()}"> </h:commandButton>
+	        <p><h:commandButton value="Entrar" action="#{usuario.Login()}"> </h:commandButton>
 	        </p>
 	        <p><h:button value="Criar Conta"></h:button>
 	        </p>

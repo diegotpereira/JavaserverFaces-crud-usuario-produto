@@ -35,7 +35,12 @@ public class LerBean implements Serializable{
 	private String username;
 	private String password;
 	
-	private HashPassword hashPasswors;
+    private HashPassword hashPassword;
+    
+    public LerBean() {
+    	
+    	hashPassword = new HashPassword();
+    }
 	
 	public boolean isLogado() {
 		return logado;
@@ -158,7 +163,7 @@ public class LerBean implements Serializable{
 		tempPassword.setPassword("123");
 		tempPassword.setSalt("0b36e479912b4274");
 		
-		tempPassword = hashPasswors.obterHashPassword(tempPassword);
+		tempPassword = hashPassword.obterHashPassword(tempPassword);
 		this.setAdmin(true);
 		
 		usuario.getPassword();
